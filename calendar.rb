@@ -9,7 +9,7 @@ class Calendar
     #@week[@date.cwday] = @date.day
   end
 
-  def to_s
-    @week[0..6]
+  def week(n)
+    @week[(n-1)*7,7]
   end
 end
