@@ -14,6 +14,20 @@ describe 'Calendar' do
       end
     end
 
+    describe '#weeks' do
+      context "no args" do
+        it "5 weeks" do
+          expect(@calendar.weeks).to eq [
+            [nil,  1,  2,  3,  4,  5,  6],
+            [  7,  8,  9, 10, 11, 12, 13],
+            [ 14, 15, 16, 17, 18, 19, 20],
+            [ 21, 22, 23, 24, 25, 26, 27],
+            [ 28, 29, 30, nil, nil, nil, nil]
+          ]
+        end
+      end
+    end
+
     describe '#week' do
       context "with 0" do
         it 'does something'
