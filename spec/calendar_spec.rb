@@ -23,7 +23,7 @@ describe 'Calendar' do
         end
 
         it 'test' do
-          expect(pending @calendar.week(0)).to eq nil
+          pending expect(@calendar.week(0)).to eq nil
         end
 
         it 'invalid args' do
