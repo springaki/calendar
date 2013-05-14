@@ -6,40 +6,10 @@ describe 'Calendar' do
       @calendar = Calendar.new(2013, 4)
     end
 
-    describe '#to_s' do
-      CALENDAR_APRIL_2013 = <<EOS
-     April 2013     
-Su Mo Tu We Th Fr Sa
-    1  2  3  4  5  6 
- 7  8  9 10 11 12 13 
-14 15 16 17 18 19 20 
-21 22 23 24 25 26 27 
-28 29 30
-EOS
-      context 'no args' do
-        it 'rendear calendar' do
-          expect(@calendar.to_s.rstrip).to eq CALENDAR_APRIL_2013.rstrip
-        end
-      end
-    end
     describe '#header' do
       context "no args" do
         it "create header" do
           expect(@calendar.header).to eq ['     April 2013     ', 'Su Mo Tu We Th Fr Sa']
-        end
-      end
-    end
-
-    describe '#weeks' do
-      context "no args" do
-        it "5 weeks" do
-          expect(@calendar.weeks).to eq [
-            [nil,  1,  2,  3,  4,  5,  6],
-            [  7,  8,  9, 10, 11, 12, 13],
-            [ 14, 15, 16, 17, 18, 19, 20],
-            [ 21, 22, 23, 24, 25, 26, 27],
-            [ 28, 29, 30, nil, nil, nil, nil]
-          ]
         end
       end
     end
@@ -81,5 +51,37 @@ EOS
         end
       end
     end
+
+    describe '#weeks' do
+      context "no args" do
+        it "5 weeks" do
+          expect(@calendar.weeks).to eq [
+            [nil,  1,  2,  3,  4,  5,  6],
+            [  7,  8,  9, 10, 11, 12, 13],
+            [ 14, 15, 16, 17, 18, 19, 20],
+            [ 21, 22, 23, 24, 25, 26, 27],
+            [ 28, 29, 30, nil, nil, nil, nil]
+          ]
+        end
+      end
+    end
+
+    describe '#to_s' do
+      CALENDAR_APRIL_2013 = <<EOS
+     April 2013     
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6 
+ 7  8  9 10 11 12 13 
+14 15 16 17 18 19 20 
+21 22 23 24 25 26 27 
+28 29 30
+EOS
+      context 'no args' do
+        it 'rendear calendar' do
+          expect(@calendar.to_s.rstrip).to eq CALENDAR_APRIL_2013.rstrip
+        end
+      end
+    end
+
   end
 end
