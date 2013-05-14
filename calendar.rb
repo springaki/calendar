@@ -21,8 +21,20 @@ class Calendar
 
   def header
     days = "Su Mo Tu We Th Fr Sa"
-    month = @first_date.strftime('%B %Y')
-    return days, month
+    month = @first_date.strftime('%B %Y').center(days.size)
+    return month, days
+  end
+
+  def to_s
+    str = header.join("\n").to_s + "\n"
+    weeks.inject(str) { |s, e|
+      e.each { |e1| 
+        s << (e1.nil? ? "  " : e1.to_s.rjust(2))
+        s << " "
+      }
+      s << "\n"
+    }
+
   end
 
 end
